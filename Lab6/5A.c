@@ -1,7 +1,7 @@
 #include <iostream>
- 
+
 using namespace std;
- 
+
 struct Node{
     int key; //Поле значения
     int left = 0; // Указатели на левую и правую поддеревья
@@ -52,14 +52,14 @@ struct Node{
 //        }
 //    }
 //}
-Node tree[200005];
+Node tree[200005]; // global initialization tree
 int height(int index){
     if(index != 0)
-        return 1 + max(height(tree[index].left), height(tree[index].right));
+        return 1 + max(height(tree[index].left), height(tree[index].right)); //recurrent formule of searching max height of tree
 }
- 
- 
- 
+
+
+
 int main()
 {
     freopen("height.in","r",stdin);
@@ -70,7 +70,7 @@ int main()
     int leftpointer[200002];
     int rightpointer[200002];
     for(int i = 1; i <= n; i++){
-        cin >> arr[i] >> leftpointer[i] >> rightpointer[i];
+        cin >> arr[i] >> leftpointer[i] >> rightpointer[i]; //input
         tree[i].key = arr[i];
         tree[i].left = leftpointer[i];
         tree[i].right = rightpointer[i];
